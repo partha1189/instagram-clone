@@ -1,8 +1,10 @@
 import React from 'react';
 
-if (process.env.NODE_ENV === 'development') {
-  const whyDidYouRender = require('@welldone-software/why-did-you-render');
-  whyDidYouRender(React, {
-    trackAllPureComponents: true
-  });
-}
+// eslint-disable-next-line global-require
+import whyDidYouRender from '@welldone-software/why-did-you-render';
+
+whyDidYouRender(React, {
+  onlyLogs: true,
+  titleColor: 'green',
+  trackAllPureComponents: true
+});

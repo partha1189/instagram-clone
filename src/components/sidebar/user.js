@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { memo } from 'react';
 
-const User = ({ username, fullName }) =>
+const User = ({ username, fullName, test }) =>
   !username || !fullName ? (
     <Skeleton count={1} height={61} />
   ) : (
     <Link to={`/p/${username}`} className="grid grid-cols-4 gap-4 mb-6 items-center">
       <div className="flex items-center col-span-1">
+        {/* {test} */}
         <img
           className="rounded-full w-16 flex mr-3"
           src={`/images/avatars/${username}.jpg`}
@@ -24,9 +25,11 @@ const User = ({ username, fullName }) =>
     </Link>
   );
 
-export default memo(User);
+User.whyDidYouRender = true;
+export default User;
 
 User.propTypes = {
-  username: PropTypes.string.isRequired,
-  fullName: PropTypes.string.isRequired
+  username: PropTypes.string,
+  fullName: PropTypes.string,
+  test: PropTypes.number
 };
